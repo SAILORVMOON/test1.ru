@@ -7,3 +7,32 @@
     font-style: normal;
 
 }
+
+INPUT.raduistop{
+    width: 300px;
+    height: 30px;
+    margin-top: 0px;
+    border: 3px solid #AAAAAA;
+    font-size: 16pt;
+    padding: 10px;
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+}
+INPUT.middle {
+    width: 300px;
+    height: 30px;
+    margin-top: 0px;
+    border: 3px solid #AAAAAA;
+    font-size: 16pt;
+    padding: 10px;
+}
+INPUT.radiusbottom {
+    width: 300px;
+    height: 30px;
+    margin-top: 0px;
+    border: 3px solid #AAAAAA;
+    font-size: 16pt;
+    padding: 10px;
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+}

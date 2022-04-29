@@ -3,7 +3,10 @@ $lines = file('database.txt');
 
 $tables = '';
 
-foreach ($lines as $k => $line) {
+
+
+for($i = $_POST['kolvo']; $i < $_POST["kolvo"] + 10; $i++){
+	$line = $lines[$i];
 	$line=trim($line);
 	if(!empty($line)){
 		$pieces = explode("|", $line);
@@ -33,15 +36,49 @@ foreach ($lines as $k => $line) {
 		$tables.= '<img src="photo/'.$pieces[0].'.jpg" width= 160 high=90>';
 		$tables.= '</td>';
 		$tables.= '</tr>';
+	}
 }
-}
+
+$tables.= '<tr>';
+$tables.= '<td>';
+$tables.= '<form action=\'tables.php\' method=\'POST\' align=\'center\'>';
+$tables.= '<input type= \'text\' name= \'kolvo\' value=';
+$tables.= $_POST['kolvo']-10;
+$tables.= '><br>';
+$tables.= '<input type=\'submit\' value=\'Предыдущие 10\'>';
+$tables.= '</form>';
+$tables.= '</td>';
+
+$tables.= '<td>';
+$tables.= '</td>';
+
+$tables.= '<td>';
+$tables.= '</td>';
+
+$tables.= '<td>';
+$tables.= '</td>';
+
+$tables.= '<td>';
+$tables.= '</td>';
+
+$tables.= '<td>';
+$tables.= '<form action=\'tables.php\' method=\'POST\' align=\'center\'>';
+$tables.= '<input type= \'text\' name= \'kolvo\' value=';
+$tables.= $_POST['kolvo']+10;
+$tables.= '><br>';
+$tables.= '<input type=\'submit\' value=\'Предыдущие 10\'>';
+$tables.= '</form>';
+$tables.= '</td>';
+$tables.= '</tr>';
 echo"<html>
 <head>
 </head>
 <body>
+<div align='center'>
 <table border=1>
 $tables
 </table>
+</div>
 </body>
 </html>"
 ?>
@@ -55,14 +92,40 @@ $tables
 	font-size: 16pt;
 	padding: 10px;
 }
+input.radiustop {
+				width: 300px;
+				height: 50px;
+				margin-top: 0px;
+				border: 3px solid #AAAAAA;
+				font-size: 16pt;
+				padding: 10px;
+				border-top-right-radius: 32px;
+				border-top-left-radius: 32px;
+			}
+			input.radiusbottom {
+				width: 300px;
+				height: 50px;
+				margin-top: 0px;
+				border: 3px solid #AAAAAA;
+				font-size: 16pt;
+				padding: 10px;
+				border-bottom-right-radius: 32px;
+				border-bottom-left-radius: 32px;
+			}
 </style>
 
-	<a href ="test.html">
-	<img src = "res/nov_zap.jpg">;
+<table>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+<a href ='test.html'>
+	<img src = 'res/nov_zap.jpg'>;
 	</a>
 	
-	<form action="delete.php" method="POST" align="center">
+	<form action='delete.php' method='POST' align='center'>
 		<p>udalit</p>
-		<input type= "text" name= "time" id="user" size="7" placeholder="time"/><br>
-		<input type="submit" id="user" value="Отправить">
+		<input type= 'text' name= 'time' class='radiustop' placeholder='time'/><br>
+		<input type='submit' class='radiusbottom' value='Отправить'>
 	</form>

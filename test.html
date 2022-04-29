@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="stylesheet.css"/>
-		<style type="text/css">
-					h1, p{
+		<style>
+			h1, p{
 				font-family: 'sgf';
-							}
-			#radiustop {
+			}
+			input.radiustop {
 				width: 300px;
 				height: 30px;
 				margin-top: 0px;
@@ -18,7 +18,7 @@
 				border-top-left-radius: 32px;
 			}
 			
-			#user {
+			input.middle {
 				width: 300px;
 				height: 30px;
 				margin-top: 0px;
@@ -27,7 +27,7 @@
 				padding: 10px;
 			}
 			
-			#radiusbottom {
+			input.radiusbottom {
 				width: 300px;
 				height: 30px;
 				margin-top: 0px;
@@ -38,28 +38,38 @@
 				border-bottom-left-radius: 32px;
 			}
 			
-			#bigchungus {
+			p.bigchungus {
 				font-size: 360pt;
 				margin-top: 30px;
 				margin-bottom: 0px;
 			}
+
+			div.colorres{
+				width: 400px;
+				background-color: #0ff;
+				border-top-right-radius: 32px;
+				border-top-left-radius: 32px;
+				border-bottom-right-radius: 32px;
+				border-bottom-left-radius: 32px;
+			}
 			
 		</style>
 	</head>
-	<body>
-
+	<body background="res/background.jpg">
 		<div align="center">
+		<div class="colorres">
 			<form enctype="multipart/form-data" method="POST" action="test.php" >
-				<input type="text" name="name" placeholder="name" id="radiustop"><br>
-				<input type="text" name="sname" placeholder="sname" id="user"><br>
-				<input type="text" name="lname" placeholder="lname" id="user"><br>
-				<input type="text" name="age" placeholder="age" id="radiusbottom"><br>
-				<input type="file" name="photo"><br>
-				<button style="width:300px; height:100px; padding:0; border:none; color:#fff"><img src="res/eromanga.png" width="300" height="100"></button>
+				<input type="text" name="name" required placeholder="name" class="radiustop"><br>
+				<input type="text" name="sname" required placeholder="sname" class="middle"><br>
+				<input type="text" name="lname" placeholder="lname" class="middle"><br>
+				<input type="text" name="age" required placeholder="age" class="radiusbottom"><br>
+				<input type= "text" name= "kolvo" value="1" hidden/><br>
+				<input type="file" name="photo" required accept=".jpeg,.jpg"><br>
+				<button style="width:300px; height:50px; padding:0; border:none; color:#fff"><img src="res/button_new.png" alt="создать запись"></button>
 			</form>
-			
+		</div>
 			<a href ="/tables.php">
-				<p id="bigchungus">tables</p>
+				<p class="bigchungus">tables</p>
 			</a>
 		</div>
 	</body>
