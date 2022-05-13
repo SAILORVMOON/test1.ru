@@ -13,6 +13,6 @@
 		move_uploaded_file($_FILES['photo']['tmp_name'], "photo/$atime.jpg");
 	}
 	
-	header("Location:test.html");
+	header("Location:test.html?1");
 	exit();
 ?>

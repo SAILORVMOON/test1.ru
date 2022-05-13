@@ -2,10 +2,14 @@
 $lines = file('database.txt');
 
 $tables = '';
+$qwe= 0;
+
+if(isset($_POST['kolvo'])){
+	$qwe = intval($_POST['kolvo']);
+}
 
 
-
-for($i = $_POST['kolvo']; $i < $_POST["kolvo"] + 10; $i++){
+for($i = $qwe; $i < $qwe + 10; $i++){
 	$line = $lines[$i];
 	$line=trim($line);
 	if(!empty($line)){
@@ -42,8 +46,8 @@ for($i = $_POST['kolvo']; $i < $_POST["kolvo"] + 10; $i++){
 $tables.= '<tr>';
 $tables.= '<td>';
 $tables.= '<form action=\'tables.php\' method=\'POST\' align=\'center\'>';
-$tables.= '<input type= \'text\' name= \'kolvo\' value=';
-$tables.= $_POST['kolvo']-10;
+$tables.= '<input type= \'text\' hidden name= \'kolvo\' value=';
+$tables.= $qwe-10;
 $tables.= '><br>';
 $tables.= '<input type=\'submit\' value=\'Предыдущие 10\'>';
 $tables.= '</form>';
@@ -63,8 +67,8 @@ $tables.= '</td>';
 
 $tables.= '<td>';
 $tables.= '<form action=\'tables.php\' method=\'POST\' align=\'center\'>';
-$tables.= '<input type= \'text\' name= \'kolvo\' value=';
-$tables.= $_POST['kolvo']+10;
+$tables.= '<input type= \'text\' hidden name= \'kolvo\' value=';
+$tables.= $qwe+10;
 $tables.= '><br>';
 $tables.= '<input type=\'submit\' value=\'Предыдущие 10\'>';
 $tables.= '</form>';
@@ -121,7 +125,7 @@ input.radiustop {
 	</tr>
 </table>
 <a href ='test.html'>
-	<img src = 'res/nov_zap.jpg'>;
+	<img src = 'res/nov_zap.jpg'>
 	</a>
 	
 	<form action='delete.php' method='POST' align='center'>
