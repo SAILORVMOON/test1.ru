@@ -8,6 +8,14 @@ if(isset($_POST['kolvo'])){
 	$qwe = intval($_POST['kolvo']);
 }
 
+if($qwe < 0){
+	$qwe = 0;
+}
+
+if($qwe + 10 > count($lines)){
+	$qwe = count($lines) - 10;
+}
+
 
 for($i = $qwe; $i < $qwe + 10; $i++){
 	$line = $lines[$i];
@@ -70,7 +78,7 @@ $tables.= '<form action=\'tables.php\' method=\'POST\' align=\'center\'>';
 $tables.= '<input type= \'text\' hidden name= \'kolvo\' value=';
 $tables.= $qwe+10;
 $tables.= '><br>';
-$tables.= '<input type=\'submit\' value=\'Предыдущие 10\'>';
+$tables.= '<input type=\'submit\' value=\'Следующие 10\'>';
 $tables.= '</form>';
 $tables.= '</td>';
 $tables.= '</tr>';
@@ -86,6 +94,7 @@ $tables
 </body>
 </html>"
 ?>
+
 
 <style>
 #user {
@@ -133,3 +142,4 @@ input.radiustop {
 		<input type= 'text' name= 'time' class='radiustop' placeholder='time'/><br>
 		<input type='submit' class='radiusbottom' value='Отправить'>
 	</form>
+
